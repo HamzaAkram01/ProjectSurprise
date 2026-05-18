@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Happy Birthday Bisma ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', sans-serif;
+    overflow-x:hidden;
+    min-height:100vh;
+    background:
+    radial-gradient(circle at top, #2d0b3f 0%, #120018 40%, #000 100%);
+    color:white;
+    position:relative;
+}
+
+/* STARS */
+
+.stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:0.3;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+/* OPENING SCREEN */
+
+.opening-screen{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    z-index:9999;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    transition:1.5s;
+}
+
+.opening-screen h1{
+    font-size:42px;
+    color:#ff8cc6;
+    font-family:'Dancing Script', cursive;
+    animation: glow 2s infinite alternate;
+}
+
+.opening-screen p{
+    margin-top:10px;
+    color:#fff;
+}
+
+@keyframes glow{
+    from{
+        text-shadow:0 0 10px #ff4da6;
+    }
+    to{
+        text-shadow:0 0 25px #ff99cc;
+    }
+}
+
+.enter-btn{
+    margin-top:30px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#ff4da6;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+}
+
+/* MAIN CARD */
+
+.main{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    position:relative;
+    z-index:2;
+}
+
+.container{
+    width:100%;
+    max-width:420px;
+    background:rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:25px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 30px rgba(255,105,180,0.4);
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating{
+    0%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+.photo{
+    width:200px;
+    height:240px;
+    border-radius:20px;
+    object-fit:cover;
+    border:5px solid #ff99cc;
+    box-shadow:0 0 25px rgba(255,105,180,0.7);
+}
+
+/* TITLE */
+
+.title{
+    margin-top:18px;
+    font-size:34px;
+    color:#ffb6d9;
+    font-family:'Dancing Script', cursive;
+}
+
+/* TYPING TEXT */
+
+.typing{
+    margin-top:18px;
+    font-size:16px;
+    line-height:1.8;
+    min-height:120px;
+    color:#fff;
+}
+
+/* SPECIAL LINES */
+
+.special-line{
+    margin-top:18px;
+    color:#ffd6eb;
+    font-style:italic;
+    line-height:1.7;
+}
+
+/* LOVE WORDS */
+
+.love-words{
+    margin-top:22px;
+    padding:18px;
+    border-radius:18px;
+    background:rgba(255,255,255,0.08);
+    color:#ffb6d9;
+    line-height:1.8;
+    box-shadow:0 0 15px rgba(255,255,255,0.08);
+}
+
+/* BUTTONS */
+
+.btn{
+    margin-top:18px;
+    padding:12px 22px;
+    border:none;
+    border-radius:30px;
+    background:#ff4da6;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
+    box-shadow:0 0 15px rgba(255,77,166,0.5);
+}
+
+/* COUNTDOWN */
+
+.countdown{
+    margin-top:18px;
+    font-size:15px;
+    color:#ffe6f2;
+}
+
+/* HEARTS */
+
+.heart{
+    position:fixed;
+    top:-10px;
+    animation:fall linear forwards;
+    z-index:1;
+    color:#ff7ab6;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* LOVE LETTER */
+
+.popup{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+}
+
+.popup-content{
+    width:100%;
+    max-width:380px;
+    background:white;
+    color:#444;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    line-height:1.8;
+    position:relative;
+}
+
+.close-btn{
+    position:absolute;
+    top:10px;
+    right:15px;
+    cursor:pointer;
+    font-size:20px;
+    color:#ff4da6;
+}
+
+/* GALLERY */
+
+.gallery{
+    margin-top:25px;
+    display:flex;
+    overflow-x:auto;
+    gap:10px;
+    padding-bottom:10px;
+}
+
+.gallery img{
+    width:120px;
+    height:150px;
+    object-fit:cover;
+    border-radius:15px;
+    flex-shrink:0;
+    border:2px solid rgba(255,255,255,0.2);
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .title{
+        font-size:30px;
+    }
+
+    .photo{
+        width:150px;
+        height:150px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- STARS -->
+<div class="stars" id="stars"></div>
+
+<!-- OPENING SCREEN -->
+<div class="opening-screen" id="opening">
+    <h1>For Bisma ❤️</h1>
+    <p>A little world made with love ✨</p>
+
+    <button class="enter-btn" onclick="startWebsite()">
+        Enter 💖
+    </button>
+</div>
+
+<!-- LOVE LETTER POPUP -->
+<div class="popup" id="popup">
+
+    <div class="popup-content">
+
+        <span class="close-btn" onclick="closePopup()">✖</span>
+
+        <h2 style="color:#ff4da6;">My Precious Girl ❤️</h2>
+
+        <p style="margin-top:15px;">
+
+            Maybe words will never fully explain how special you are to me,
+            but every little moment with you feels peaceful, warm, and beautiful.
+
+            You became my comfort, my favorite notification,
+            and the reason behind countless smiles ✨
+
+            Happy Birthday, Bisma 💖
+        </p>
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="container">
+
+    <!-- IMAGE -->
+    <img src="assets/image/piclove.jpeg" class="photo">
+
+    <!-- TITLE -->
+    <div class="title">
+        Happy Birthday Bisma ❤️
+    </div>
+
+    <!-- TYPING EFFECT -->
+    <div class="typing" id="typing"></div>
+
+    <!-- SPECIAL LINE -->
+    <div class="special-line">
+        "The moment when 'something' slowly became my 'everything'...
+        became the most beautiful feeling of my life ❤️"
+    </div>
+
+    <!-- LOVE WORDS -->
+    <div class="love-words">
+        💖 My Qalbi 💖 <br>
+        🌸 Meenamma 🌸 <br>
+        ✨ Bisma Ji ✨ <br>
+        💕 Mohtarma 💕 <br>
+        ❤️ Madam Ji ❤️
+    </div>
+
+    <!-- COUNTDOWN -->
+    <div class="countdown" id="countdown"></div>
+
+    <!-- BUTTON -->
+    <button class="btn" onclick="openPopup()">
+        Open Love Letter 💌
+    </button>
+
+    <!-- GALLERY -->
+    <div class="gallery">
+
+        <img src="assets/image/piclove.jpeg">
+        <img src="assets/image/piclove.jpeg">
+        <img src="assets/image/piclove.jpeg">
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- MUSIC -->
+<audio id="song" loop>
+    <source src="assets/song/songlove.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+/* START WEBSITE */
+
+function startWebsite(){
+
+    document.getElementById("opening").style.opacity = "0";
+
+    setTimeout(() => {
+        document.getElementById("opening").style.display = "none";
+    }, 1500);
+
+   const song = document.getElementById("song");
+
+    song.currentTime = 10;
+
+    song.play();
+
+}
+
+/* TYPING EFFECT */
+
+const text = `
+You are the most beautiful chapter of my life, Bisma ❤️
+
+Your smile brings peace to my heart and your presence makes every moment magical ✨
+
+Every little thing about you feels precious to me.
+
+On your special day,
+I just want to see you smiling,
+happy,
+and loved forever 💖
+`;
+
+let i = 0;
+
+function typingEffect(){
+
+    if(i < text.length){
+
+        document.getElementById("typing").innerHTML += text.charAt(i);
+
+        i++;
+
+        setTimeout(typingEffect, 45);
+    }
+}
+
+typingEffect();
+
+/* HEARTS + WORDS RAIN */
+
+const words = [
+    "❤️",
+    "💖 My Qalbi",
+    "🌸 Meenamma",
+    "✨ Bisma Ji",
+    "💕 Mohtarma",
+    "❤️ Madam Ji"
+];
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    heart.innerHTML =
+        words[Math.floor(Math.random() * words.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        Math.random() * 15 + 16 + "px";
+
+    heart.style.animationDuration =
+        Math.random() * 3 + 4 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 7000);
+}
+
+setInterval(createHeart, 500);
+
+/* STARS */
+
+for(let i = 0; i < 120; i++){
+
+    let star = document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.left = Math.random() * 100 + "%";
+
+    star.style.animationDuration =
+        Math.random() * 3 + 1 + "s";
+
+    document.getElementById("stars").appendChild(star);
+}
+
+/* LOVE LETTER */
+
+function openPopup(){
+
+    document.getElementById("popup").style.display = "flex";
+}
+
+function closePopup(){
+
+    document.getElementById("popup").style.display = "none";
+}
+
+/* COUNTDOWN */
+
+// const birthday = new Date("May 20, 2026 00:00:00").getTime();
+
+// setInterval(() => {
+
+//     const now = new Date().getTime();
+
+//     const distance = birthday - now;
+
+//     const days =
+//         Math.floor(distance / (1000 * 60 * 60 * 24));
+
+//     const hours =
+//         Math.floor((distance % (1000 * 60 * 60 * 24))
+//         / (1000 * 60 * 60));
+
+//     const mins =
+//         Math.floor((distance % (1000 * 60 * 60))
+//         / (1000 * 60));
+
+//     document.getElementById("countdown").innerHTML =
+//         "⏳ Birthday Countdown: "
+//         + days + "d "
+//         + hours + "h "
+//         + mins + "m ";
+
+// }, 1000);
+
+</script>
+
+</body>
+</html>
